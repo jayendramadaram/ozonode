@@ -1,0 +1,46 @@
+
+> tempbackend@1.0.0 start-server
+> node --loader ts-node/esm src/server.ts
+
+Server is running on http://localhost:8008
+Connected to database
+Request Received: ✅ 
+ {
+  amount: 2000,
+  fromChain: 'bitcoin',
+  toChain: 'evm:sepolia',
+  fromAddress: '',
+  toAddress: '0x0D3c6bc2D2edC983DE4b912C1f4C2447b7363665',
+  fromAsset: 'btc',
+  toAsset: '0xa0907fA317E90d6cE330d28565E040f0474E932E'
+}
+Request Received: ✅ 
+ {
+  amount: 2000,
+  fromChain: 'evm:sepolia',
+  toChain: 'evm:amoy',
+  fromAddress: '',
+  toAddress: '0x0D3c6bc2D2edC983DE4b912C1f4C2447b7363665',
+  fromAsset: '0xa0907fA317E90d6cE330d28565E040f0474E932E',
+  toAsset: '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D'
+}
+Request Received: ✅ 
+ {
+  amount: 2000,
+  fromChain: 'evm:amoy',
+  toChain: 'evm:scroll',
+  fromAddress: '',
+  toAddress: '0x0D3c6bc2D2edC983DE4b912C1f4C2447b7363665',
+  fromAsset: '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D',
+  toAsset: '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D'
+}
+Request Received: ✅ 
+ {
+  amount: 2000,
+  fromChain: 'evm:base',
+  toChain: 'evm:scroll',
+  fromAddress: '',
+  toAddress: '0x0D3c6bc2D2edC983DE4b912C1f4C2447b7363665',
+  fromAsset: '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D',
+  toAsset: '0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D'
+}

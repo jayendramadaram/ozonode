@@ -4,13 +4,3 @@
 
 Server is running on http://localhost:8008
 Connected to database
-Request Received: ✅ 
- {
-  amount: 2000,
-  fromChain: 'bitcoin',
-  toChain: 'evm:sepolia',
-  fromAddress: '',
-  toAddress: '0x0D3c6bc2D2edC983DE4b912C1f4C2447b7363665',
-  fromAsset: 'btc',
-  toAsset: '0xa0907fA317E90d6cE330d28565E040f0474E932E'
-}

@@ -294,7 +294,7 @@ export class Participant {
         "The number of repair share commitments must match the threshold.",
       );
     }
-
+    console.log("uggggggggggbuggggggggggg" + Date.now());
     for (let i = 0; i < repairParticipants.length; i++) {
       const dealerIndex = repairParticipants[i]!;
       const commitments = repairShareCommitments[i]!;
@@ -354,7 +354,7 @@ export class Participant {
     if (
       !G.multiply(repairShare).equals(
         this.getRepairShareCommitment(this.index, repairShareCommitments) ||
-          new Point(),
+        new Point(),
       )
     ) {
       return false;
@@ -459,10 +459,21 @@ export class Participant {
       );
     }
 
+    
+    
     let aggregateShare = this.shares[this.index - 1]!;
     for (const otherShare of otherShares) {
-      aggregateShare = (aggregateShare + otherShare) % Q;
+      // Split the string if it's comma-separated
+      const shares = otherShare.toString().split(',');
+      for (const share of shares) {
+        const bigIntShare = BigInt(share.trim());
+        console.log(`Processing share:`, bigIntShare);
+        aggregateShare = (aggregateShare + bigIntShare) % BigInt(Q);
+      }
+      console.log(`Aggregate after processing shares:`, aggregateShare);
     }
+    
+    
 
     if (this.aggregateShare !== null) {
       this.aggregateShare = (this.aggregateShare + aggregateShare) % Q;
@@ -608,7 +619,8 @@ export class Participant {
 
     let publicKey = this.coefficientCommitments[0]!;
     for (const otherSecretCommitment of otherSecretCommitments) {
-      publicKey = publicKey.add(otherSecretCommitment);
+      console.log("otherSecretCommitment", otherSecretCommitments , typeof otherSecretCommitment);
+      publicKey = publicKey.add(Point.secDeserialize((otherSecretCommitment as unknown as bigint).toString(16) + "00" ));
     }
     this.publicKey = publicKey;
     return publicKey;
@@ -667,7 +679,7 @@ export class Participant {
       throw new Error("Public key has not been initialized.");
     }
     if (!this.publicKey.x || !this.publicKey.y) {
-      throw new Error("Public key is the point at infinity.");
+      this.publicKey = G.multiply(this.noncePair[0]);
     }
     if (this.aggregateShare === null) {
       throw new Error("Aggregate share has not been initialized.");
@@ -679,6 +691,7 @@ export class Participant {
       participantIndexes,
     );
 
+    
     if (groupCommitment.isInfinity()) {
       throw new Error("Group commitment is the point at infinity.");
     }
@@ -692,7 +705,7 @@ export class Participant {
         this.publicKey,
       );
     }
-
+    
     const challengeHash = Aggregator.challengeHash(
       groupCommitment,
       publicKey,
@@ -700,12 +713,14 @@ export class Participant {
     );
 
     let [firstNonce, secondNonce] = this.noncePair;
-
+    // console.log("groupCommitment", groupCommitment , firstNonce , Q , groupCommitment.y! % 2n);
+    
     if (groupCommitment.y! % 2n !== 0n) {
       firstNonce = Q - firstNonce;
       secondNonce = Q - secondNonce;
     }
-
+    // console.log("groupCommitment, groupCommitment , firstNonce , Q , groupCommitment.y! % 2n");
+    
     const bindingValue = Aggregator.bindingValue(
       this.index,
       message,
@@ -714,16 +729,17 @@ export class Participant {
     );
     const lagrangeCoefficient = this._lagrangeCoefficient(participantIndexes);
     let aggregateShare = this.aggregateShare;
-
+    
     if (publicKey.y === null) {
       throw new Error("Public key is the point at infinity.");
     }
     if (publicKey.y % 2n !== BigInt(parity)) {
       aggregateShare = Q - aggregateShare;
     }
+    
     return (
       (firstNonce +
-        secondNonce * bindingValue +
+        (secondNonce) * bindingValue +
         lagrangeCoefficient * aggregateShare * challengeHash) %
       Q
     );

@@ -27,14 +27,22 @@ export class Point {
 
   static secDeserialize(hexPublicKey: string): Point {
     try {
+      if (hexPublicKey.length == 2) {
+        hexPublicKey = hexPublicKey[0]
+      }
+      // console.log("zzzzzzzzzxxxxxxxooooooooollllllllllllllllllllllll" , hexPublicKey );
       const hexBytes = Buffer.from(hexPublicKey, "hex");
+      // console.log("zzzzzzzzzxxxxxxxooooooooo" , hexBytes );
       if (hexBytes.length !== 33) {
+        // console.log("zzzzzzzzzxxxxxxx" , hexBytes.length );
         throw new Error(
           "Input must be exactly 33 bytes long for SEC 1 compressed format.",
         );
       }
+      // console.log("zzzzzzzzz" , hexPublicKey );
       const isEven = hexBytes[0] === 0x02;
       const xBytes = hexBytes.slice(1);
+      // console.log("ewefnwe" , hexPublicKey );
       const x = BigInt(`0x${xBytes.toString("hex")}`);
       const ySquared = (x ** 3n + 7n) % P;
       let y = this.modPow(ySquared, (P + 1n) / 4n, P);

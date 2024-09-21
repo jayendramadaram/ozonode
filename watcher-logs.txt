@@ -2,14 +2,211 @@
 > tempbackend@1.0.0 start-watcher
 > node --loader ts-node/esm src/watcher/watcher.ts
 
-(node:19108) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+(node:31872) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
 --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'
 (Use `node --trace-warnings ...` to show where the warning was created)
 Connected to database
-Error checking funding for order 1: SyntaxError: Unexpected token '<', "<html>
-<h"... is not valid JSON
-    at JSON.parse (<anonymous>)
-    at Timeout.checkForUtxo (file:///D:/codebases/hackathons/ozone/tempbackend/src/utils/bitcoinUtils.ts:119:51)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-Funding detected for order 1
-Completed order 1
+DKG initialization complete
+Nonce generation complete
+[
+  {
+    status: 200,
+    statusText: 'OK',
+    headers: Object [AxiosHeaders] {
+      'x-powered-by': 'Express',
+      'content-type': 'application/json; charset=utf-8',
+      'content-length': '80',
+      etag: 'W/"50-hKl/yY9y+n4Tq3lsmK9UgFMSTBE"',
+      date: 'Sat, 21 Sep 2024 17:00:45 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'http://localhost:3001/sign',
+      data: '{"message":{"type":"Buffer","data":[48,120,48,50,50,50,50,50,50,50]},"nonceCommitmentPairs":[["0305c8feb4aeff4fe916cbb72f5c77f1c612f2f6b73c6593096e387953606b7680","02da0abe76de7dae2a293c28c924a5e610fc2c937fdf2bbbc670ded507c2238a3f"],["02566f5f86ba6349c83c9c5af212775c95eeb680dab0e28924cdef20c696f19616","02e377e9ebfeb878c46e322f27418d81191a3ed6d04a40bf36f9c7c8014b1f6ee8"]],"participantIndexes":[1,2]}'
+    },
+    request: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: '401',
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      socket: [Socket],
+      _header: 'POST /sign HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'User-Agent: axios/1.7.2\r\n' +
+        'Content-Length: 401\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: localhost:3001\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/sign',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: true,
+      host: 'localhost',
+      protocol: 'http:',
+      _redirectable: [Writable],
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype],
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 16384,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null
+    },
+    data: {
+      signature: 'd266d512aa370ac4d13ecee9419c4e55c9813d873fb41e4d81343c03ad840c41'
+    }
+  },
+  {
+    status: 200,
+    statusText: 'OK',
+    headers: Object [AxiosHeaders] {
+      'x-powered-by': 'Express',
+      'content-type': 'application/json; charset=utf-8',
+      'content-length': '80',
+      etag: 'W/"50-CQi8gpYmSLwTQk4v3ynwojwVRTI"',
+      date: 'Sat, 21 Sep 2024 17:00:45 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5'
+    },
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'post',
+      url: 'http://localhost:3002/sign',
+      data: '{"message":{"type":"Buffer","data":[48,120,48,50,50,50,50,50,50,50]},"nonceCommitmentPairs":[["0305c8feb4aeff4fe916cbb72f5c77f1c612f2f6b73c6593096e387953606b7680","02da0abe76de7dae2a293c28c924a5e610fc2c937fdf2bbbc670ded507c2238a3f"],["02566f5f86ba6349c83c9c5af212775c95eeb680dab0e28924cdef20c696f19616","02e377e9ebfeb878c46e322f27418d81191a3ed6d04a40bf36f9c7c8014b1f6ee8"]],"participantIndexes":[1,2]}'
+    },
+    request: ClientRequest {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      outputData: [],
+      outputSize: 0,
+      writable: true,
+      destroyed: true,
+      _last: false,
+      chunkedEncoding: false,
+      shouldKeepAlive: true,
+      maxRequestsOnConnectionReached: false,
+      _defaultKeepAlive: true,
+      useChunkedEncodingByDefault: true,
+      sendDate: false,
+      _removedConnection: false,
+      _removedContLen: false,
+      _removedTE: false,
+      strictContentLength: false,
+      _contentLength: '401',
+      _hasBody: true,
+      _trailer: '',
+      finished: true,
+      _headerSent: true,
+      _closed: true,
+      socket: [Socket],
+      _header: 'POST /sign HTTP/1.1\r\n' +
+        'Accept: application/json, text/plain, */*\r\n' +
+        'Content-Type: application/json\r\n' +
+        'User-Agent: axios/1.7.2\r\n' +
+        'Content-Length: 401\r\n' +
+        'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+        'Host: localhost:3002\r\n' +
+        'Connection: keep-alive\r\n' +
+        '\r\n',
+      _keepAliveTimeout: 0,
+      _onPendingData: [Function: nop],
+      agent: [Agent],
+      socketPath: undefined,
+      method: 'POST',
+      maxHeaderSize: undefined,
+      insecureHTTPParser: undefined,
+      joinDuplicateHeaders: undefined,
+      path: '/sign',
+      _ended: true,
+      res: [IncomingMessage],
+      aborted: false,
+      timeoutCb: null,
+      upgradeOrConnect: false,
+      parser: null,
+      maxHeadersCount: null,
+      reusedSocket: true,
+      host: 'localhost',
+      protocol: 'http:',
+      _redirectable: [Writable],
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false,
+      [Symbol(kBytesWritten)]: 0,
+      [Symbol(kNeedDrain)]: false,
+      [Symbol(corked)]: 0,
+      [Symbol(kOutHeaders)]: [Object: null prototype],
+      [Symbol(errored)]: null,
+      [Symbol(kHighWaterMark)]: 16384,
+      [Symbol(kRejectNonStandardBodyWrites)]: false,
+      [Symbol(kUniqueHeaders)]: null
+    },
+    data: {
+      signature: '2626b26998e8e5c3080aa585e7fd8a92464c4406fd1ad340eb263ee8467d499b'
+    }
+  }
+]
+b9bc7366b27f14f38f4b40089376208185308510e8eff754a84502ededa32398f88d877c431ff087d949746f2999d8e80fcd818e3ccef18e6c5a7aebf40155dc checkpoint 1
+^C

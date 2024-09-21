@@ -16,21 +16,25 @@ const PORT = 3000 + participantId;
 let participant: Participant;
 
 app.post('/init', (req, res) => {
+
   const { index, threshold, totalParticipants } = req.body;
   participant = new Participant(index, threshold, totalParticipants);
   participant.initKeygen();
   participant.generateShares();
-
+  
   res.json({
     coefficientCommitments: participant.coefficientCommitments!.map(c => c.secSerialize().toString('hex')),
-    shares: participant.shares,
+    shares: participant.shares ? participant.shares.map(share => share.toString()) : null,
   });
+  console.log(`Participant ${index} initialized`);
+  
 });
 
 app.post('/aggregate-shares', (req, res) => {
   const { shares, coefficientCommitments } = req.body;
   participant.aggregateShares(shares);
   participant.derivePublicKey(coefficientCommitments.map((c: string) => Point.secDeserialize(c).x));
+  console.log(`uggggggggggbuggggggggggg+1`);
   participant.deriveGroupCommitments(coefficientCommitments.map((cc: string[]) => cc.map((c: string) => Point.secDeserialize(c))));
 
   res.json({ message: 'Shares aggregated' });
@@ -52,12 +56,13 @@ app.post('/generate-nonces', (req, res) => {
 
 app.post('/sign', (req, res) => {
   const { message, nonceCommitmentPairs, participantIndexes } = req.body;
+  console.log( "message, nonceCommitmentPairs, participantIndexes" , message.data.toString('hex'));
   const signature = participant.sign(
-    message,
+    message.data.toString('hex'),
     nonceCommitmentPairs.map((pair: string[]) => pair.map((p: string) => Point.secDeserialize(p))),
     participantIndexes
   );
-  res.json({ signature });
+  res.json({ signature : signature.toString(16) });
 });
 
 app.listen(PORT, () => {

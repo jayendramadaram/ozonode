@@ -204,7 +204,11 @@ const agg_sign = async (message : string) => {
       )
     );
 
-    const signature = agg.signature(signatures.map((s) => s.data.signature));
+    // console.log(signatures);
+
+    const signature = agg.signature(signatures.map((s) => BigInt("0x" + s.data.signature)));
+   
+
     return signature.toString('hex')
   } catch (error) {
     console.error("Sign error:", error);
@@ -310,8 +314,9 @@ export async function sendFromTaproot(privkeyWIF: string, amount: number, toAddr
 // Start the watcher service
 const watcherService = new WatcherService();
 await watcherService.initialize();
-initializeDKG();
-generateNonces();
+await initializeDKG();
+await generateNonces();
+await agg_sign("0x02222222");
 watcherService
   .watchUncompletedOrders()
   .catch((error) => console.error("Watcher service error:", error));

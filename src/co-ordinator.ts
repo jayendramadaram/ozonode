@@ -28,7 +28,7 @@ export async function initializeDKG() {
     await Promise.all(
       Array.from({ length: TOTAL_PARTICIPANTS }, (_, i) =>
         axios.post(`http://localhost:${PARTICIPANT_BASE_PORT + i}/aggregate-shares`, {
-          shares: shares.map((s) => s[i]),
+          shares: shares.filter((s, j) => j !== i), // send all shares except for self
           coefficientCommitments: coefficientCommitments.map((cc) => cc.map((c : Point) => c.secSerialize().toString('hex'))),
         })
       )

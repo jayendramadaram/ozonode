@@ -2,54 +2,14 @@
 > tempbackend@1.0.0 start-watcher
 > node --loader ts-node/esm src/watcher/watcher.ts
 
-(node:14876) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+(node:19108) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
 --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'
 (Use `node --trace-warnings ...` to show where the warning was created)
 Connected to database
+Error checking funding for order 1: SyntaxError: Unexpected token '<', "<html>
+<h"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at Timeout.checkForUtxo (file:///D:/codebases/hackathons/ozone/tempbackend/src/utils/bitcoinUtils.ts:119:51)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
 Funding detected for order 1
 Completed order 1
-Amount: 0
-No funding detected for order 2
-Amount: 0
-No funding detected for order 2
-Amount: 2000
-Funding detected for order 2
-Completed order 2
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4
-Amount: 0
-No funding detected for order 3
-Amount: 0
-No funding detected for order 4

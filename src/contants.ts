@@ -30,6 +30,7 @@ const vaultAddressMap : Record<string, string> = {
     'flow' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
     'morph' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
     'linea' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
+    'airdao' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
 }
 
 const rpcMap : Record<string, string> = {
@@ -42,6 +43,7 @@ const rpcMap : Record<string, string> = {
     'flow' : 'https://testnet.evm.nodes.onflow.org', 
     'morph' : 'https://rpc-quicknode-holesky.morphl2.io',  
     'linea' : 'https://rpc.sepolia.linea.build', 
+    'airdao' : 'https://network.ambrosus-test.io',
 }
 
 

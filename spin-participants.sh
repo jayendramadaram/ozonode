@@ -3,7 +3,7 @@
 # Function to start a participant and log its output to terminal
 start_participant() {
     local id=$1
-    nodemon --exec node --loader ts-node/esm src/participant.ts $id 2>&1 | sed "s/^/[Participant $id] /" &
+     node --loader ts-node/esm src/participant.ts $id 2>&1 | sed "s/^/[Participant $id] /" &
 }
 
 # Start participants 1, 2, and 3

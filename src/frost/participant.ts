@@ -294,7 +294,6 @@ export class Participant {
         "The number of repair share commitments must match the threshold.",
       );
     }
-    console.log("uggggggggggbuggggggggggg" + Date.now());
     for (let i = 0; i < repairParticipants.length; i++) {
       const dealerIndex = repairParticipants[i]!;
       const commitments = repairShareCommitments[i]!;
@@ -619,7 +618,6 @@ export class Participant {
 
     let publicKey = this.coefficientCommitments[0]!;
     for (const otherSecretCommitment of otherSecretCommitments) {
-      console.log("otherSecretCommitment", otherSecretCommitments , typeof otherSecretCommitment);
       publicKey = publicKey.add(Point.secDeserialize((otherSecretCommitment as unknown as bigint).toString(16) + "00" ));
     }
     this.publicKey = publicKey;

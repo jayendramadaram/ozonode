@@ -7,7 +7,6 @@ import { Executor } from "../types/Executor.js";
 import { ExecutorAbi } from "../abi/executor.js";
 import { InterfaceAbi } from "ethers";
 import {  broadcast, waitUntilUTXO } from "../utils/bitcoinUtils.js";
-import { sign } from "../utils/ethereumUtils.js";
 import {
   bitcoin_priv_key,
   eth_agg_key,
@@ -15,26 +14,22 @@ import {
   eth_priv_key,
   vaultAddress,
 } from "../contants.js";
-import { toChecksumAddress } from "web3-utils";
 import { generateNonces, initializeDKG, PARTICIPANT_BASE_PORT, participantNonceCommitments, publicKey } from "../co-ordinator.js";
 import axios from "axios";
 import { Aggregator } from "../frost/aggregator.js";
 
 import * as bitcoin from 'bitcoinjs-lib';
-import { regtest } from 'bitcoinjs-lib/src/networks.js';
-import { TinySecp256k1Interface } from 'bitcoinjs-lib/src/types.js';
-import  { ECPairFactory , ECPairAPI, ECPairInterface } from 'ecpair';
+import  { ECPairFactory , ECPairAPI } from 'ecpair';
 import * as ecc from "tiny-secp256k1";
-import { blockstream, network } from '../contants.js';
+import { network } from '../contants.js';
 import { getTaprootHashesForSig } from "./taproot.js";
-import { signature } from "bitcoinjs-lib/src/script.js";
+import { sign } from "../utils/ethereumUtils.js";
 
 
 
 
 bitcoin.initEccLib(ecc as any);
 const ECPair: ECPairAPI = ECPairFactory(ecc) 
-
 const participantIndexes = [1 , 2];
 
 class WatcherService {
@@ -151,7 +146,8 @@ class WatcherService {
       ) as unknown as Executor;
       const account = new ethers.Wallet(eth_priv_key!, provider);
 
-      const Signature = await agg_sign(getBytes(
+      const Signature = 
+      await agg_sign(getBytes(
           solidityPackedKeccak256(
             ["address", "uint256", "address"],
             [order.toAsset, order.amount, order.toAddress]
@@ -175,6 +171,7 @@ class WatcherService {
           order.amount,
           order.toAddress,
           ethers.concat([Signature.slice(0, 32), Signature.slice(32, 64)])
+          // ethers.concat([Signature.e, Signature.s])
         );
 
       order.dstTxid = tx.hash;
@@ -206,10 +203,11 @@ const agg_sign = async (message : string) => {
 
     // console.log(signatures);
 
-    const signature = agg.signature(signatures.map((s) => BigInt("0x" + s.data.signature)));
+    const signature = agg.signature(signatures.map((s) => BigInt("0x" + s.data.signature.replace("-" , ""))));
    
 
     return signature.toString('hex')
+    
   } catch (error) {
     console.error("Sign error:", error);
     return '';

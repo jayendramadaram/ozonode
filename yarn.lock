@@ -210,6 +210,13 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.13.tgz#f64277c341150c979e42b00e4ac289290c9df469"
   integrity sha512-N+0kuo9KgrUQ1Sn/ifDXsvg0TTleP7rIy4zOBGECxAljqvqfqpTfzx0Q1NUedOixRMBfe2Whhb056a42cWs26Q==
 
+"@types/node@^20.0.0":
+  version "20.16.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.16.5.tgz#d43c7f973b32ffdf9aa7bd4f80e1072310fd7a53"
+  integrity sha512-VwYCweNo3ERajwy0IUlqqcyZ8/A7Zwa9ZP3MnENWcB11AejO+tLy3pu850goUW2FC/IJMdZUfKpX/yxL1gymCA==
+  dependencies:
+    undici-types "~6.19.2"
+
 "@types/qs@*":
   version "6.9.15"
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.15.tgz#adde8a060ec9c305a82de1babc1056e73bd64dce"
@@ -1000,6 +1007,15 @@ express@^4.19.2:
     utils-merge "1.0.1"
     vary "~1.1.2"
 
+fhenixjs@^0.4.0-alpha.0:
+  version "0.4.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/fhenixjs/-/fhenixjs-0.4.0-alpha.0.tgz#e26fbb73f1c41d5b69d8bdc481f5cd9a9d6191a8"
+  integrity sha512-wY4tAffjLEk6q01XNb4nWMtng0tj9cb18rThK440I0vGAl6qEtPZztET6E9Mib6h1IetQlqQr5jky5DS6hIxxw==
+  dependencies:
+    "@types/node" "^20.0.0"
+    tweetnacl "^1.0.3"
+    tweetnacl-util "^0.15.1"
+
 file-uri-to-path@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz#553a7b8446ff6f684359c445f1e37a05dacc33dd"
@@ -1701,6 +1717,11 @@ node-gyp@8.x:
     tar "^6.1.2"
     which "^2.0.2"
 
+node-seal@^5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/node-seal/-/node-seal-5.1.4.tgz#0f17d7c6737191a58aa6a4fa1062aa813cce22af"
+  integrity sha512-GwxUupLuLP9wMivqybwT9OOhkDunADBnQmKFbwabnZaPgQTBXY3AZRWDamUCQxzWjn7t+Pxwl8FxZSisgKXJwA==
+
 nodemon@^3.1.4:
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-3.1.4.tgz#c34dcd8eb46a05723ccde60cbdd25addcc8725e4"
@@ -2340,6 +2361,16 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
+tweetnacl-util@^0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/tweetnacl-util/-/tweetnacl-util-0.15.1.tgz#b80fcdb5c97bcc508be18c44a4be50f022eea00b"
+  integrity sha512-RKJBIj8lySrShN4w6i/BonWp2Z/uxwC3h4y7xsRrpP59ZboCd0GpEVsOnMDYLMmKBpYhb5TgHzZXy7wTfYFBRw==
+
+tweetnacl@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-1.0.3.tgz#ac0af71680458d8a6378d0d0d050ab1407d35596"
+  integrity sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==
+
 type-is@~1.6.18:
   version "1.6.18"
   resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"
@@ -2393,6 +2424,11 @@ undici-types@~5.26.4:
   version "5.26.5"
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
   integrity sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==
+
+undici-types@~6.19.2:
+  version "6.19.8"
+  resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.19.8.tgz#35111c9d1437ab83a7cdc0abae2f26d88eda0a02"
+  integrity sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==
 
 unique-filename@^1.1.1:
   version "1.1.1"

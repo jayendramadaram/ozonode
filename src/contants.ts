@@ -25,7 +25,11 @@ const vaultAddressMap : Record<string, string> = {
     'base' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D
     'scroll' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D
     'amoy' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D
-    'optimism' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f' // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
+    'optimism' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
+    'hedera' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
+    'flow' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
+    'morph' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
+    'linea' : '0xDeb4C7AB99e46aFEbfE374F6a7BBFB63D309166f', // Token : 0xdbfa6D8aC5e5d684E4Fe6B0830242D8A716E748D   
 }
 
 const rpcMap : Record<string, string> = {
@@ -33,7 +37,11 @@ const rpcMap : Record<string, string> = {
     'base' : 'https://base-sepolia-rpc.publicnode.com',
     'scroll' : 'https://rpc.ankr.com/scroll_sepolia_testnet',
     'amoy' : "https://rpc.ankr.com/polygon_amoy",
-    'optimism' : "https://sepolia.optimism.io"
+    'optimism' : "https://sepolia.optimism.io",
+    'hedera' : 'https://testnet.hashio.io/api', 
+    'flow' : 'https://testnet.evm.nodes.onflow.org', 
+    'morph' : 'https://rpc-quicknode-holesky.morphl2.io',  
+    'linea' : 'https://rpc.sepolia.linea.build', 
 }
 
 
